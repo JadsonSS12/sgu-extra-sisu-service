@@ -1,0 +1,22 @@
+package br.edu.ufape.sgu_extra_sisu_service.model;
+
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+public class EditalExtraSisu extends GrupoModeloEdital {
+    
+    String nome;
+    String pdf;
+    LocalDateTime dataInscricao;
+    LocalDateTime dataFinalizacao;
+}
