@@ -1,34 +1,29 @@
+spring:
+  application:
+    name: sgu-extra-sisu-service
+  config:
+    import:
+      - optional:file:.env[.properties]
+      - optional:configserver:http://localhost:8888
+  profiles:
+    active: default
+
 server:
-  port: 8080
+  port: 8085
+---
+
+springdoc:
+  api-docs:
+    path: /api-doc/docs
+  swagger-ui:
+    path: /api-doc/swagger.html
 
 spring:
   config:
-    import: "optional:file:.env[.properties]"
-  application:
-    name: sgu-extra-sisu-service
-  datasource:
-    driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:sgu_extra_sisu_db}?stringtype=unspecified&prepareThreshold=0
-    username: ${DB_USER:postgres}
-    password: ${DB_PASSWORD:postgres}
-  sql.init.mode: never
-  jpa:
-    hibernate:
-      ddl-auto: update
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
-    show-sql: true
-    database: postgresql
-
----
-spring.config.activate.on-profile: docker
-server:
-  port: 8080
-
----
-spring.config.activate.on-profile: test
-
-spring:
+    activate:
+      on-profile: test
+    import: []
+  
   datasource:
     driverClassName: org.h2.Driver
     url: jdbc:h2:mem:transporte;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
@@ -46,4 +41,6 @@ spring:
     console:
       enabled: true
       path: /h2-console
-  sql.init.mode: never
+  sql:
+    init:
+      mode: never
