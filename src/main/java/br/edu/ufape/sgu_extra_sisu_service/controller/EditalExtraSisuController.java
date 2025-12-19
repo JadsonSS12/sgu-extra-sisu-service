@@ -12,7 +12,7 @@ import com.querydsl.core.types.Predicate;
 import br.edu.ufape.sgu_extra_sisu_service.controller.request.EditalRequest;
 import br.edu.ufape.sgu_extra_sisu_service.controller.response.EditalResponse;
 import br.edu.ufape.sgu_extra_sisu_service.model.EditalExtraSisu;
-import br.edu.ufape.sgu_extra_sisu_service.service.EditalExtraSisuService;
+import br.edu.ufape.sgu_extra_sisu_service.service.interfaces.EditalExtraSisuService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor; 
 

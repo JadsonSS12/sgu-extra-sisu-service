@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.edu.ufape.sgu_extra_sisu_service.model.EditalExtraSisu;
 import br.edu.ufape.sgu_extra_sisu_service.repository.EditalExtraSisuRepository;
+import br.edu.ufape.sgu_extra_sisu_service.service.interfaces.EditalExtraSisuService;
 
 @SpringBootTest 
 @ActiveProfiles("test") 

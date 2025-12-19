@@ -12,7 +12,7 @@ import com.querydsl.core.types.Predicate;
 import br.edu.ufape.sgu_extra_sisu_service.controller.request.PublicacaoRequest;
 import br.edu.ufape.sgu_extra_sisu_service.controller.response.PublicacaoResponse;
 import br.edu.ufape.sgu_extra_sisu_service.model.Publicacao;
-import br.edu.ufape.sgu_extra_sisu_service.service.PublicacaoService;
+import br.edu.ufape.sgu_extra_sisu_service.service.interfaces.PublicacaoService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
