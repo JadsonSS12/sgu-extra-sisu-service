@@ -27,7 +27,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import br.edu.ufape.sgu_extra_sisu_service.controller.request.PublicacaoRequest;
 import br.edu.ufape.sgu_extra_sisu_service.model.EditalExtraSisu;
 import br.edu.ufape.sgu_extra_sisu_service.model.Publicacao;
-import br.edu.ufape.sgu_extra_sisu_service.service.PublicacaoService;
+import br.edu.ufape.sgu_extra_sisu_service.service.interfaces.PublicacaoService;
 
 @WebMvcTest(PublicacaoController.class)
 class PublicacaoControllerTest {

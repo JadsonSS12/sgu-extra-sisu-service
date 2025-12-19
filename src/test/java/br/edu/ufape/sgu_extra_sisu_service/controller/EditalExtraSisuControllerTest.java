@@ -26,7 +26,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import br.edu.ufape.sgu_extra_sisu_service.controller.request.EditalRequest;
 import br.edu.ufape.sgu_extra_sisu_service.model.EditalExtraSisu;
-import br.edu.ufape.sgu_extra_sisu_service.service.EditalExtraSisuService;
+import br.edu.ufape.sgu_extra_sisu_service.service.interfaces.EditalExtraSisuService;
 
 @WebMvcTest(EditalExtraSisuController.class)
 class EditalExtraSisuControllerTest {

@@ -1,4 +1,4 @@
-package br.edu.ufape.sgu_extra_sisu_service.service;
+package br.edu.ufape.sgu_extra_sisu_service.service.interfaces;
 
 import br.edu.ufape.sgu_extra_sisu_service.model.EditalExtraSisu;
 
