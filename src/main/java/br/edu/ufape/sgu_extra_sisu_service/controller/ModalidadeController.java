@@ -24,14 +24,14 @@ public class ModalidadeController {
     @Autowired
     private ModalidadeService modalidadeService;
 
-    @PostMapping("/create")
+    @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     public ModalidadeResponse create(@Valid @RequestBody ModalidadeRequest request) {
         Modalidade novaModalidade = request.toModel();
         return new ModalidadeResponse(modalidadeService.create(novaModalidade));
     }
 
-    @GetMapping("/list")
+    @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     public Page<ModalidadeResponse> list(@QuerydslPredicate(root = Modalidade.class) Predicate filtro, Pageable pageable) {
         // Certifique-se de atualizar o método 'list' ou 'listarTodos' no Service para aceitar (Predicate, Pageable)
