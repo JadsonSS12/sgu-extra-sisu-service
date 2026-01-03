@@ -1,4 +1,6 @@
-FROM eclipse-temurin:21-jdk-alpine-3.23 AS build
+ARG BASE_IMAGE=eclipse-temurin:25-jdk-noble
+
+FROM ${BASE-IMAGE} AS build
 WORKDIR /app
 
 COPY mvnw ./
@@ -13,7 +15,7 @@ COPY src ./src
 RUN --mount=type=cache,target=/root/.m2 \
     ./mvnw clean install -DskipTests
 \
-FROM eclipse-temurin:21-jdk-alpine-3.23 AS runtime
+FROM ${BASE_IMAGE} AS runtime
 WORKDIR /app
 
 COPY --from=build /app/target/*.jar app.jar
