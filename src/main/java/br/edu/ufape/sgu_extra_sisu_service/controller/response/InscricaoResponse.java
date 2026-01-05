@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.util.UUID;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -15,6 +16,6 @@ public class InscricaoResponse {
     private UUID idUsuario;
     private LocalDateTime dataInscricao;
     private StatusPersonalizadoResponse statusAtual;
-    //private documentos
+    private List<DocumentoResponse> documentos;
 
 }
