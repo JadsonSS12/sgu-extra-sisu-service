@@ -1,11 +1,15 @@
 package br.edu.ufape.sgu_extra_sisu_service.fachada;
 
+import br.edu.ufape.sgu_extra_sisu_service.client.EditalExtraSisuServiceClient;
+import br.edu.ufape.sgu_extra_sisu_service.comunicacao.dto.edital.EditalModuloEditaisRequest;
 import br.edu.ufape.sgu_extra_sisu_service.controller.request.*;
 import br.edu.ufape.sgu_extra_sisu_service.controller.response.*;
 import br.edu.ufape.sgu_extra_sisu_service.client.DataEtapaServiceClient;
 import br.edu.ufape.sgu_extra_sisu_service.client.DocumentoServiceClient;
 import br.edu.ufape.sgu_extra_sisu_service.client.TipoEditalServiceClient;
+import br.edu.ufape.sgu_extra_sisu_service.model.Isencao;
 import br.edu.ufape.sgu_extra_sisu_service.service.EtapaServiceHandler;
+import br.edu.ufape.sgu_extra_sisu_service.service.interfaces.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
@@ -26,8 +30,6 @@ import br.edu.ufape.sgu_extra_sisu_service.service.interfaces.EditalAdminHandler
 import br.edu.ufape.sgu_extra_sisu_service.service.interfaces.StatusPersonalizadoHandler;
 import br.edu.ufape.sgu_extra_sisu_service.service.interfaces.ValorCampoHandler;
 import lombok.RequiredArgsConstructor;
-import br.edu.ufape.sgu_extra_sisu_service.service.interfaces.EditalExtraSisuService;
-import br.edu.ufape.sgu_extra_sisu_service.service.interfaces.HistoricoEtapaInscricaoHandler;
 
 @Component
 @RequiredArgsConstructor
@@ -53,8 +55,16 @@ public class Fachada {
     @Autowired
     private TipoEditalServiceClient tipoEditalServiceClient;
 
-    public EditalExtraSisu salvarEditalExtraSisu(EditalExtraSisu edital) {
-        return extraSisuService.salvar(edital);
+    @Autowired
+    private EditalExtraSisuServiceClient editalExtraSisuServiceClient;
+
+    @Autowired
+    private IsencaoInterface isencaoService;
+
+
+    public EditalExtraSisu salvarEditalExtraSisu(EditalRequest request) {
+        EditalExtraSisu editalModel = request.toModel();
+        return extraSisuService.salvar(editalModel, request.getTipoEditalId());
     }
 
     public EditalExtraSisu buscarEditalExtraSisu(Long id) {
@@ -222,6 +232,16 @@ public class Fachada {
 
     public PageResponse<HistoricoEtapaInscricaoResponse> listarHistoricosExternos() {
         return editalHistoricoEtapaHandler.listar();
+    }
+
+
+    // =================== Isenção ===================
+    public Isencao salvarIsencao(Long usuarioId, IsencaoRequest request) {
+        return isencaoService.solicitar(usuarioId, request);
+    }
+
+    public Isencao avaliarIsencao(Long id, AvaliarIsencaoRequest request) {
+        return isencaoService.avaliar(id, request);
     }
 
 }
