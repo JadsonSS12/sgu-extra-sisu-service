@@ -32,6 +32,8 @@ public class IsencaoServiceImpl implements IsencaoInterface {
 
         Isencao isencao = new Isencao();
         isencao.setUsuarioId(usuarioId);
+        isencao.setRg(request.getCpf());
+        isencao.setRg(request.getRg());
         isencao.setEdital(edital);
         isencao.setDocumentosUrl(request.getDocumentoUrl());
         return repository.save(isencao);

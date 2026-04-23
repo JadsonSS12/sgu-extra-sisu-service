@@ -12,13 +12,15 @@ import java.util.List;
 @NoArgsConstructor
 public class IsencaoResponse {
 
-    public Long id;
-    public Long usuarioId;
-    public Long editalId;
-    public Long modalidadeId;
-    public List<String> documentoUrl;
-    public StatusIsencao status;
-    public String justificativa;
+    private Long id;
+    private Long usuarioId;
+    private Long editalId;
+    private String cpf;
+    private String rg;
+    private Long modalidadeId;
+    private List<String> documentoUrl;
+    private StatusIsencao status;
+    private String justificativa;
 
     public IsencaoResponse(Isencao obj) {
         ModelMapper modelMapper = new ModelMapper();

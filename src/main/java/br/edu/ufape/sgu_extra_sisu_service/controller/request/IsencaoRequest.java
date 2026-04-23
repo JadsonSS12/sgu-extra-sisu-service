@@ -6,8 +6,10 @@ import java.util.List;
 
 @Data
 public class IsencaoRequest {
-    public Long usuarioId;
-    public Long editalId;
-    public Long modalidadeId;
+    private Long usuarioId;
+    private Long editalId;
+    private String cpf;
+    private String rg;
+    private Long modalidadeId;
     private List<String> documentoUrl;
 }

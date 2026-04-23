@@ -24,6 +24,10 @@ public class Isencao {
     @ManyToOne
     private Modalidade modalidade;
 
+    private String cpf;
+
+    private String rg;
+
     @ElementCollection
     private List<String> documentosUrl;
 
